@@ -2,6 +2,7 @@ package com.lambton;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Arrays;
 
 public class StudentMainClass
 {
@@ -33,6 +34,14 @@ public class StudentMainClass
            s.calculateResult();
            s.printData();
        }
+
+       Arithmetic arithmetic = new Arithmetic();
+       System.out.println(arithmetic.add(10, 2));
+        System.out.println(arithmetic.add(10, 5.0));
+        System.out.println(arithmetic.add(10, 2.0f));
+        System.out.println(arithmetic.add("Hello", 2));
+        System.out.println(arithmetic.add("Hello", "2.0"));
+
     }
 }
 

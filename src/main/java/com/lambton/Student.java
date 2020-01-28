@@ -22,7 +22,6 @@ public class Student {
     private float percentage;
     private String result;
 
-
     public Student(int studentId, String firstName, String lastName, LocalDate birthDate, Gender gender, float []marks) {
         this.studentId = studentId;
         this.firstName = firstName;
@@ -39,6 +38,7 @@ public class Student {
 
     public String getFirstName() {
         return firstName;
+
     }
 
     public void setFirstName(String firstName) {
@@ -106,10 +106,12 @@ public class Student {
     }
 
     private int calculateStudentAge() {
-        int age;
+        int age = 0;
 
         LocalDate today = LocalDate.now();
-        age = today.getYear() - birthDate.getYear();
+        if(birthDate != null) {
+            age = today.getYear() - birthDate.getYear();
+        }
 
         return age;
     }
@@ -137,9 +139,12 @@ public class Student {
 
     private String getFormattedBirthDate()
     {
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("E, dd MMM, yyyy");
+        if(birthDate != null) {
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("E, dd MMM, yyyy");
 
-        return this.birthDate.format(myFormatObj);
+            return this.birthDate.format(myFormatObj);
+        }
+        return new String();
     }
 
     private void getAge() {
